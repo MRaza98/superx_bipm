@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Staging orders"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: order_state
+        description: "The states the order can be in"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Cancelled, Shipped, open']
+      - name: retailer_id
+        description: "The retailer associated with the order"
+        tests:
+          - not_null
