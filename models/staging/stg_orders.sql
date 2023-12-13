@@ -12,6 +12,3 @@ SELECT
     , CAST(retailer_id AS INT) AS retailer_id
 
 FROM source
-
-
-
