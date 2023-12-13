@@ -1,7 +1,7 @@
 
 WITH source AS 
 
-    (SELECT * FROM {{ source('source', 'orders') }})
+    (SELECT * FROM {{ source('prod', 'orders') }})
 
 SELECT
 

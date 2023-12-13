@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: source
+  - name: prod
     database: data-warehousing-402518
     schema: source
     tables:
