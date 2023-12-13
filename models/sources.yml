@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: prod
     database: data-warehousing-402518
-    schema: source
+    schema: prod
     tables:
       - name: bill_of_materials
       - name: forecasts
