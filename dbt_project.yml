@@ -41,3 +41,6 @@ models:
     cube:
       +schema: cube
       +materialized: table
+    snapshots:
+      +schema: staging
+      +materialized: view
