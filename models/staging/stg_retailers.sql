@@ -5,7 +5,7 @@ WITH source AS
 
 , seed AS
 
-    (SELECT * FROM {{ ref('retailer_category') }})
+    (SELECT * FROM {{ ref('retailer_category_mapping') }})
 
 , base AS (
 
@@ -13,9 +13,9 @@ SELECT
 
     CAST(id AS INT) AS retailer_id
     , CAST(state AS STRING) AS retailer_state
-    , CAST(name as TIMESTAMP) AS retailer_name
-    , CAST(category AS INT) AS retailer_category
-    , CAST(currency AS INT) AS retailer_currency
+    , CAST(name as STRING) AS retailer_name
+    , CAST(category AS STRING) AS retailer_category
+    , CAST(currency AS STRING) AS retailer_currency
 
 FROM source
 
@@ -23,6 +23,5 @@ FROM source
 
 SELECT
     * EXCEPT (retailer_category)
-    , seed.consolidated_category
 FROM base
-JOIN seed ON seed.category = base.retailer_category
+JOIN seed USING (retailer_category)
