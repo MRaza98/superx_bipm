@@ -5,11 +5,10 @@ sources:
     database: data-warehousing-402518
     schema: prod
     tables:
-      - name: bill_of_materials
-      - name: forecasts
       - name: order_items
       - name: orders
       - name: retailers
       - name: shipping
       - name: shipping_items
+      - name: materials
       
