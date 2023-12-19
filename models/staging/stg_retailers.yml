@@ -28,3 +28,11 @@ models:
           - not_null
           - accepted_values:
               values: ['Online', 'Offline']
+      - name: retailer_consolidated_country
+        description: "Country of the retailer"
+        tests:
+          - not_null
+      - name: retailer_region
+        description: "Region of the retailer"
+        tests:
+          - not_null
