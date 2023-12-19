@@ -1,0 +1,1 @@
+SELECT * FROM {{ ref('snapshot_stg_materials') }}

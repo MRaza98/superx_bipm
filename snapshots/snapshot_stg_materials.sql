@@ -1,4 +1,4 @@
-{% snapshot snapshot_materials %}
+{% snapshot snapshot_stg_materials %}
 
 {{ 
     config(
@@ -12,6 +12,6 @@
 
 }}
 
-SELECT * FROM {{ source('prod', 'retailers') }}
+SELECT * FROM {{ source('prod', 'materials') }}
 
 {% endsnapshot %}
