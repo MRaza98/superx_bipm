@@ -9,7 +9,7 @@ SELECT
     , retailer_state
     , retailer_name
     , retailer_region
-    , retailer_consolidated_category AS retailer_category
+    , retailer_category_consolidated AS retailer_category
     , retailer_country_consolidated AS retailer_country
 
 FROM base
