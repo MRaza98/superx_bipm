@@ -13,6 +13,7 @@ WITH source AS
         , CAST(order_id AS INT) AS order_id
         , CAST(quantity AS INT) AS quantity
         , CAST(timestamp AS TIMESTAMP) AS order_time
+        , CAST(material_id AS STRING) AS product_id
 
     FROM source
 )

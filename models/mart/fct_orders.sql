@@ -14,6 +14,7 @@ SELECT
     , order_items.order_time
     , price
     , quantity
+    , product_id
     , order_currency
     , retailer_id
     , order_state
