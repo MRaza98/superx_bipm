@@ -4,8 +4,9 @@ WITH base AS
     (SELECT * FROM {{ ref('stg_retailers') }})
 
 SELECT
-
-    consolidated_retailer_id AS retailer_id
+-- using consolidated for reporting and default id for the join logic later on
+    consolidated_retailer_id
+    , retailer_id
     , retailer_state
     , retailer_name
     , retailer_region

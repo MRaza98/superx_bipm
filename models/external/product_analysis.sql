@@ -3,33 +3,40 @@ WITH orders AS
 
     (SELECT * FROM {{ ref('fct_orders') }})
 
-, retailers AS 
-
-    (SELECT * FROM {{ ref('dim_retailers') }})
-
 , materials AS
 
     (SELECT * FROM {{ ref('dim_materials') }})
 
-, orders_revenue_per_retailer AS (
+, orders_revenue_per_product AS (
 
     SELECT
 
         retailer_id
-        , retailer_name
-        , product_name
         , order_currency
         , DATE_TRUNC(order_time, MONTH) AS order_month
         , COUNT(DISTINCT order_id) AS n_orders
         , COUNT(order_line_id) AS n_items
-        , COUNT(order_line_id) / COUNT(DISTINCT order_id) AS n_products_per_order
         , SUM(price) AS amount
 
     FROM orders
-    LEFT JOIN retailers USING (retailer_id)
     LEFT JOIN materials USING (product_id)
-    GROUP BY 1, 2, 3, 4, 5
+    GROUP BY 1, 2, 3
 
 )
 
-SELECT * FROM orders_revenue_per_retailer
+, final AS (
+
+    SELECT
+        orders_revenue_per_retailer.*
+        , retailer_name
+        , retailer_category
+        , retailer_country
+        , retailer_region
+        , retailer_state
+    
+    FROM orders_revenue_per_retailer
+    LEFT JOIN retailers USING (retailer_id)
+
+)
+
+SELECT * FROM final
