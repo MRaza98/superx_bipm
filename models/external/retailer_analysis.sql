@@ -14,12 +14,13 @@ WITH orders AS
         retailer_id
         , order_currency
         , DATE_TRUNC(order_time, MONTH) AS order_month
+        , order_state
         , COUNT(DISTINCT order_id) AS n_orders
         , COUNT(order_line_id) AS n_items
         , SUM(price) AS amount
 
     FROM orders
-    GROUP BY 1, 2, 3
+    GROUP BY 1, 2, 3, 4
 
 )
 

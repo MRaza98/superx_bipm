@@ -38,9 +38,9 @@ models:
     mart:
       +schema: mart
       +materialized: table
-    cube:
-      +schema: cube
+    external:
+      +schema: external
       +materialized: table
 snapshots:
-    +schema: staging
+    +schema: snapshot
     +materialized: snapshot
