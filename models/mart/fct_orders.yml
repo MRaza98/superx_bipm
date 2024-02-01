@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "All orders"
+    columns:
+      - name: retailer_id
+        tests:
+          - relationships:
+              to: ref('dim_retailers')
+              field: retailer_id
+      - name: product_id
+        tests:
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+  
