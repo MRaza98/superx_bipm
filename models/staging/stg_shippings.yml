@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_shippings
+    description: "Staging Shipping"
+    columns:
+      - name: shipping_id
+        description: "The primary key for this table."
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "The associated order_id."
+        tests:
+          - unique
+          - not_null
+      - name: shipping_timestamp
+        description: "Time of shipping."
+        tests:
+          - not_null

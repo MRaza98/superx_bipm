@@ -8,7 +8,7 @@ sources:
       - name: order_items
       - name: orders
       - name: retailers
-      - name: shipping
+      - name: shippings
       - name: shipping_items
       - name: materials
       

@@ -42,5 +42,5 @@ models:
       +schema: external
       +materialized: table
 snapshots:
-    +schema: snapshot
+    +schema: snapshots
     +materialized: snapshot
