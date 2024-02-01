@@ -1,8 +1,8 @@
-{% snapshot snapshot_stg_materials %}
+{% snapshot snapshot_stg_retailers %}
 
 -- dbt recommended strategy is to use timestamp
 -- assuming here that the timestamp column is the column
--- which updates when any material info changes
+-- which updates when any retailer info changes
 
 {{ 
     config(
@@ -16,6 +16,6 @@
 
 }}
 
-SELECT * FROM {{ source('prod', 'materials') }}
+SELECT * FROM {{ source('prod', 'retailers') }}
 
 {% endsnapshot %}
