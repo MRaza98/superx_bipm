@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_shipping
+  - name: stg_shippings
     description: "Staging Shipping"
     columns:
       - name: shipping_id
