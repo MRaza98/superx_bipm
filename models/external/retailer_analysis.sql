@@ -13,6 +13,7 @@ WITH orders AS
 
         retailer_id
         , order_currency
+        , DATE_TRUNC(order_time, DAY) AS order_date
         , DATE_TRUNC(order_time, MONTH) AS order_month
         , order_state
         , COUNT(DISTINCT order_id) AS n_orders
@@ -20,7 +21,7 @@ WITH orders AS
         , SUM(price) AS amount
 
     FROM orders
-    GROUP BY 1, 2, 3, 4
+    GROUP BY 1, 2, 3, 4, 5
 
 )
 
@@ -35,7 +36,8 @@ WITH orders AS
         , retailer_state
     
     FROM orders_revenue_per_retailer
-    LEFT JOIN retailers USING (retailer_id)
+    LEFT JOIN retailers ON retailers.retailer_id = orders_revenue_per_retailer.retailer_id
+    AND orders_revenue_per_retailer.order_date BETWEEN retailers.valid_from AND retailers.valid_to
 
 )
 

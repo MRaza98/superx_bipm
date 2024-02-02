@@ -1,7 +1,7 @@
 
 WITH source AS 
 
-    (SELECT * FROM {{ source('prod', 'retailers') }})
+    (SELECT * FROM {{ ref('snapshot_retailers') }})
 
 , retailer_category_mapping AS
 
@@ -21,6 +21,8 @@ SELECT
     , CAST(category AS STRING) AS retailer_category
     , CAST(currency AS STRING) AS retailer_currency
     , CAST(address AS STRING) AS retailer_address
+    , CAST(dbt_valid_from AS TIMESTAMP) AS valid_from
+    , CAST({{ replace_null_with_infinity('dbt_valid_to') }} AS TIMESTAMP) AS valid_to
 
 FROM source
 
