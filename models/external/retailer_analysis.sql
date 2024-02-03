@@ -19,6 +19,7 @@ WITH orders AS
         , COUNT(DISTINCT order_id) AS n_orders
         , COUNT(order_line_id) AS n_items
         , SUM(price) AS amount
+        , SUM(EUR_price) as EUR_amount
 
     FROM orders
     GROUP BY 1, 2, 3, 4, 5

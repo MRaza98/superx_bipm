@@ -9,4 +9,7 @@ SELECT
     , product_name
     , product_type
     , product_description
+    , DATE_TRUNC(valid_from, DAY) AS valid_from
+    , DATE_TRUNC(valid_to, DAY) AS valid_to
+    
 FROM base
