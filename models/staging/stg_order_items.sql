@@ -18,7 +18,7 @@ WITH source AS
     FROM source
 )
 
--- Temporary table to determine the most common currency for each order_id
+-- Temporary table to determine the currency for each order_id
 , currency_cte AS (
 
   SELECT 
