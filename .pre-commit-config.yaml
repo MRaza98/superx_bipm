@@ -1,5 +1,5 @@
 repos:
-  - repo: https://github.com/pre-commit/sqlfluff
+  - repo: https://github.com/sqlfluff/sqlfluff
     rev: v2.3.5
     hooks:
       - id: sqlfluff
