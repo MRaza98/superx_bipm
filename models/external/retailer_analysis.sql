@@ -7,7 +7,7 @@ WITH orders AS
 
     (SELECT * FROM {{ ref('dim_retailers') }})
 
-, orders_revenue_per_retailer AS (
+,orders_revenue_per_retailer AS (
 
     SELECT
 
