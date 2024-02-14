@@ -8,9 +8,9 @@ orders_revenue_per_product AS (
 
         product_id,
         order_currency,
+        order_states,
         DATE_TRUNC(order_time, DAY) AS order_dates,
         DATE_TRUNC(order_time, MONTH) AS order_month,
-        order_states,
         COUNT(*) AS n_orders,
         SUM(price) AS amount,
         SUM(eur_price) AS eur_amount
@@ -24,13 +24,14 @@ final AS (
 
     SELECT
         orders_revenue_per_product.*,
-        product_name,
-        product_type
+        products.product_name,
+        products.product_type
 
     FROM orders_revenue_per_product
     LEFT JOIN products ON
         orders_revenue_per_product.product_id = products.product_id
-        AND orders_revenue_per_product.order_date BETWEEN products.valid_from AND products.valid_to
+        AND orders_revenue_per_product.order_date
+        BETWEEN products.valid_from AND products.valid_to
 
 )
 
