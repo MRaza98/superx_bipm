@@ -26,7 +26,7 @@ WITH orders AS
 
 )
 
-, final AS (
+,final AS (
 
     SELECT
         orders_revenue_per_retailer.*
